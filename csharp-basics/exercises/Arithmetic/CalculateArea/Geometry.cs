@@ -16,7 +16,6 @@ namespace CalculateArea
 
         public static double AreaOfRectangle(decimal length, decimal width)
         {
-
             return Math.Round((double)length * (double)width, 2);
         }
 

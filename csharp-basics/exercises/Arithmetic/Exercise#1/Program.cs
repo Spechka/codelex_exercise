@@ -11,11 +11,7 @@ namespace Exercise_1
             Console.WriteLine("Please enter your second number: ");
             int secondNumber = int.Parse(Console.ReadLine());
 
-            if (firstNumber + secondNumber == 15 || firstNumber - secondNumber == 15)
-            {
-                Console.WriteLine(true);
-            }
-            else if (firstNumber == 15 || secondNumber == 15)
+            if (firstNumber + secondNumber == 15 || firstNumber - secondNumber == 15 || firstNumber == 15 || secondNumber == 15)
             {
                 Console.WriteLine(true);
             }
