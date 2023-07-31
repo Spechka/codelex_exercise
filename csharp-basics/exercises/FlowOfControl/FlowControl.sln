@@ -3,13 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PositiveNegativeNumber", "PositiveNegativeNumber\PositiveNegativeNumber.csproj", "{A2ABFE79-82C9-44CF-BF0A-A067DAA7A966}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PositiveNegativeNumber", "PositiveNegativeNumber\PositiveNegativeNumber.csproj", "{A2ABFE79-82C9-44CF-BF0A-A067DAA7A966}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LargestNumber", "LargestNumber\LargestNumber.csproj", "{53E612A0-B352-4B2B-8942-5B7E7097AC4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LargestNumber", "LargestNumber\LargestNumber.csproj", "{53E612A0-B352-4B2B-8942-5B7E7097AC4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TenBillion", "TenBillion\TenBillion.csproj", "{77AB50C0-F0DA-46B0-8299-7AB0B9404B03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TenBillion", "TenBillion\TenBillion.csproj", "{77AB50C0-F0DA-46B0-8299-7AB0B9404B03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetTheCentury", "GetTheCentury\GetTheCentury.csproj", "{3FFBD995-2B38-44A5-BDC8-E1E767E0EFCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GetTheCentury", "GetTheCentury\GetTheCentury.csproj", "{3FFBD995-2B38-44A5-BDC8-E1E767E0EFCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintDayInWord", "PrintDayInWord\PrintDayInWord.csproj", "{DBCC124A-30DF-430F-BEB8-E888A31A5208}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneKeyPad", "PhoneKeyPad\PhoneKeyPad.csproj", "{47ACAF48-FB46-493B-A92C-EF2049A1FA8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise#7", "Exercise#7\Exercise#7.csproj", "{BEB2033A-4674-4AEE-8A1A-49878BB0DE99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise#8", "Exercise#8\Exercise#8.csproj", "{FFD209A2-AA36-45AF-9536-79F7842AFED3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +41,22 @@ Global
 		{3FFBD995-2B38-44A5-BDC8-E1E767E0EFCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FFBD995-2B38-44A5-BDC8-E1E767E0EFCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FFBD995-2B38-44A5-BDC8-E1E767E0EFCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBCC124A-30DF-430F-BEB8-E888A31A5208}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBCC124A-30DF-430F-BEB8-E888A31A5208}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBCC124A-30DF-430F-BEB8-E888A31A5208}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBCC124A-30DF-430F-BEB8-E888A31A5208}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47ACAF48-FB46-493B-A92C-EF2049A1FA8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47ACAF48-FB46-493B-A92C-EF2049A1FA8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47ACAF48-FB46-493B-A92C-EF2049A1FA8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47ACAF48-FB46-493B-A92C-EF2049A1FA8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEB2033A-4674-4AEE-8A1A-49878BB0DE99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEB2033A-4674-4AEE-8A1A-49878BB0DE99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEB2033A-4674-4AEE-8A1A-49878BB0DE99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEB2033A-4674-4AEE-8A1A-49878BB0DE99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFD209A2-AA36-45AF-9536-79F7842AFED3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFD209A2-AA36-45AF-9536-79F7842AFED3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFD209A2-AA36-45AF-9536-79F7842AFED3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFD209A2-AA36-45AF-9536-79F7842AFED3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
