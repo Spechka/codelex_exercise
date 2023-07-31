@@ -7,7 +7,6 @@ namespace Exercise_7
         const string Rock = "rock";
         const string Paper = "paper";
         const string Scissors = "scissors";
-
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to rock, paper, scissors!");
