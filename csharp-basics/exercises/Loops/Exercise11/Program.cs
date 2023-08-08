@@ -9,6 +9,7 @@ namespace Exercise11
             string word = "Happy Birthday";
             Console.WriteLine(ReverseCase(word));
         }
+
         public static string ReverseCase(string word)
         {
             char[] arr = word.ToCharArray();
