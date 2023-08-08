@@ -28,6 +28,7 @@ namespace Piglet
                     break;
                 }
             }
+
             if (isWin)
             {
                 Console.WriteLine($"Too bad, you were doing so well! :v \n Your score is {score}");

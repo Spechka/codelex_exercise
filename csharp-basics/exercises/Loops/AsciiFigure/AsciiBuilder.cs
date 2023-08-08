@@ -5,6 +5,7 @@ namespace AsciiFigure
     public class AsciiBuilder
     {
         private const int Rows = 6;
+
         public static void Print()
         {
             for (int i = 0; i < Rows; i++)
