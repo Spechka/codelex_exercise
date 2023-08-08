@@ -17,8 +17,7 @@ namespace Exercise5
                 {
                     indexOfElement36 = i;
                 }
-
-                if (myArray[i] == 29)
+                else if (myArray[i] == 29)
                 {
                     indexOfElement29 = i;
                 }

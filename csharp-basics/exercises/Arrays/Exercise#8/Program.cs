@@ -8,10 +8,12 @@ namespace Exercise_8
     {
         static string[] words = { "apple", "banana", "orange", "grape", "mango", "pear", "cherry", "kiwi", "melon", "peach" };
         static Random random = new Random();
+
         static string ChooseWord()
         {
             return words[random.Next(words.Length)];
         }
+
         static string DisplayWord(string word, HashSet<char> guessedLetters)
         {
             string display = "";
@@ -24,6 +26,42 @@ namespace Exercise_8
             }
             return display;
         }
+
+        static void DisplayGuessedLetters(HashSet<char> guessedLetters)
+        {
+            if (guessedLetters.Count > 0)
+            {
+                Console.Write("Guessed letters: ");
+                foreach (char letter in guessedLetters)
+                {
+                    Console.Write(letter + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        static char GetGuess(HashSet<char> guessedLetters)
+        {
+            char guess;
+            do
+            {
+                Console.Write("Enter a letter: ");
+                guess = char.ToLower(Console.ReadKey().KeyChar);
+                Console.WriteLine();
+
+                if (guessedLetters.Contains(guess))
+                {
+                    Console.WriteLine("You already guessed this letter. Try another one.");
+                }
+                else
+                {
+                    break;
+                }
+            } while (true);
+
+            return guess;
+        }
+
         static void PlayGame()
         {
             string wordToGuess = ChooseWord();
@@ -36,26 +74,11 @@ namespace Exercise_8
             while (maxAttempts > 0)
             {
                 Console.WriteLine("\n" + DisplayWord(wordToGuess, guessedLetters));
-
-                if (guessedLetters.Count > 0)
-                {
-                    Console.Write("Guessed letters: ");
-                    foreach (char letter in guessedLetters)
-                    {
-                        Console.Write(letter + " ");
-                    }
-                    Console.WriteLine();
-                }
+                DisplayGuessedLetters(guessedLetters);
 
                 Console.Write("Enter a letter: ");
-                char guess = char.ToLower(Console.ReadKey().KeyChar);
-                Console.WriteLine();
 
-                if (guessedLetters.Contains(guess))
-                {
-                    Console.WriteLine("You already guessed this letter. Try another one.");
-                    continue;
-                }
+                char guess = GetGuess(guessedLetters);
 
                 guessedLetters.Add(guess);
 
@@ -77,6 +100,7 @@ namespace Exercise_8
             if (maxAttempts == 0)
                 Console.WriteLine("\nGame over! The word was: {0}", wordToGuess);
         }
+
         static void Main()
         {
             PlayGame();

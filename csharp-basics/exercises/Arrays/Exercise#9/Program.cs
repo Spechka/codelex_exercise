@@ -8,6 +8,7 @@ namespace Exercise_9
         {
             return char.ToUpper(name[0]) + name.Substring(1).ToLower();
         }
+
         static string[] CapMe(string[] names)
         {
             string[] capitalizedNames = new string[names.Length];
@@ -17,6 +18,7 @@ namespace Exercise_9
             }
             return capitalizedNames;
         }
+
         static void Main()
         {
             string[] names1 = { "mavis", "senaida", "letty" };

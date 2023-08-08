@@ -7,6 +7,7 @@ namespace TicTacToe
         private static char[,] _board = new char[3, 3];
         private static char _currentPlayer = 'X';
         private static bool _gameOver = false;
+
         private static void Main(string[] args)
         {
             InitBoard();
@@ -22,6 +23,7 @@ namespace TicTacToe
             Console.WriteLine("Game Over!");
             Console.ReadKey();
         }
+
         private static void InitBoard()
         {
             for (var r = 0; r < 3; r++)
@@ -30,6 +32,7 @@ namespace TicTacToe
                     _board[r, c] = ' ';
             }
         }
+
         private static void DisplayBoard()
         {
             Console.WriteLine("   0   1   2");
@@ -40,6 +43,7 @@ namespace TicTacToe
             Console.WriteLine("2  " + _board[2, 0] + " | " + _board[2, 1] + " | " + _board[2, 2]);
             Console.WriteLine();
         }
+
         private static void TakeTurn()
         {
             Console.WriteLine("Player " + _currentPlayer + ", it's your turn.");
@@ -64,30 +68,33 @@ namespace TicTacToe
                 }
             }
         }
+
         private static void CheckGameOver()
         {
             if (CheckWin() || CheckDraw())
                 _gameOver = true;
         }
+
         private static bool CheckWin()
         {
             for (int i = 0; i < 3; i++)
             {
-                if (_board[i, 0] == _currentPlayer && _board[i, 1] == _currentPlayer && _board[i, 2] == _currentPlayer)
+                if ((_board[i, 0] == _currentPlayer && _board[i, 1] == _currentPlayer && _board[i, 2] == _currentPlayer) ||
+                    (_board[0, i] == _currentPlayer && _board[1, i] == _currentPlayer && _board[2, i] == _currentPlayer))
+                {
                     return true;
-
-                if (_board[0, i] == _currentPlayer && _board[1, i] == _currentPlayer && _board[2, i] == _currentPlayer)
-                    return true;
+                }
             }
 
-            if (_board[0, 0] == _currentPlayer && _board[1, 1] == _currentPlayer && _board[2, 2] == _currentPlayer)
+            if ((_board[0, 0] == _currentPlayer && _board[1, 1] == _currentPlayer && _board[2, 2] == _currentPlayer) ||
+                (_board[0, 2] == _currentPlayer && _board[1, 1] == _currentPlayer && _board[2, 0] == _currentPlayer))
+            {
                 return true;
-
-            if (_board[0, 2] == _currentPlayer && _board[1, 1] == _currentPlayer && _board[2, 0] == _currentPlayer)
-                return true;
+            }
 
             return false;
         }
+
         private static bool CheckDraw()
         {
             for (int r = 0; r < 3; r++)
@@ -101,6 +108,7 @@ namespace TicTacToe
 
             return true;
         }
+
         private static void SwitchPlayer()
         {
             _currentPlayer = _currentPlayer == 'X' ? 'O' : 'X';
