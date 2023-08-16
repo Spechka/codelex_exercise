@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace UniqueValues
 {
@@ -11,6 +13,9 @@ namespace UniqueValues
 
             var values = new List<string> { "Hi", "Meow", "Hello", "Meow", "Hi!", "Meow", "Hi", "Bye" };
 
+            var fixedValues = values.Distinct().ToList();
+
+            Console.WriteLine(string.Join(", ", fixedValues));
         }
     }
 }
