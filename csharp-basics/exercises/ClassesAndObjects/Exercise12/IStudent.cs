@@ -10,6 +10,6 @@ namespace Exercise12
     {
         List<string> TestsTaken {  get; }
 
-        public void TakeTest(ITestpaper paper, string[] answers);
+        void TakeTest(ITestpaper paper, string[] answers);
     }
 }

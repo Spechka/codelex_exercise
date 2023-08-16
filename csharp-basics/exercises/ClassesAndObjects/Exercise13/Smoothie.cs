@@ -59,7 +59,8 @@ namespace Exercise13
 
         public double GetPrice()
         {
-            return GetCost() * 1.5;
+            var math = GetCost() * 1.5;
+            return Math.Round(GetCost() + math, 2);
         }
 
         public string Ingredients => string.Join(",", _ingredientList);

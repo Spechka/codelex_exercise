@@ -8,17 +8,17 @@ namespace Exercise4
 {
     internal class Movie
     {
-        public string Title { get; set; }
+        private string _title;
 
-        public string Studio { get; set; }
+        private string _studio;
 
-        public string Rating { get; set; }
+        private string _rating;
 
         public Movie(string title, string studio, string rating)
         {
-            Title = title;
-            Studio = studio;
-            Rating = rating;
+            _title = title;
+            _studio = studio;
+            _rating = rating;
         }
 
         public static Movie WithDefaultRating(string title, string studio)
@@ -32,13 +32,26 @@ namespace Exercise4
 
             foreach (Movie movie in movies)
             {
-                if (movie.Rating == "PG")
+                if (movie._rating == "PG")
                 {
                     pgMovies.Add(movie);
                 }
             }
 
             return pgMovies.ToArray();
+        }
+
+        public void PrintInfo()
+        {
+            Console.WriteLine($"Title: {_title}, Studio: {_studio}, Rating: {_rating}");
+        }
+
+        public static void PrintMovies(Movie[] movies)
+        {
+            foreach (Movie film in movies)
+            {
+                film.PrintInfo();
+            }
         }
     }
 }

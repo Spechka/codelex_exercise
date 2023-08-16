@@ -8,15 +8,15 @@ namespace Exercise6
 {
     internal class Dog
     {
-        public string Name;
-        public string Sex;
+        private string _name;
+        private string _sex;
         public Dog Mother;
         public Dog Father;
 
         public Dog(string name, string sex)
         {
-            Name = name;
-            Sex = sex;
+            _name = name;
+            _sex = sex;
         }
 
         public void SetParents(Dog mother, Dog father)
@@ -27,7 +27,7 @@ namespace Exercise6
 
         public string FatherName()
         {
-            return Father == null ? "Unknown" : Father.Name;
+            return Father == null ? "Unknown" : Father._name;
         }
 
         public bool HasSameMother(Dog compareMom)

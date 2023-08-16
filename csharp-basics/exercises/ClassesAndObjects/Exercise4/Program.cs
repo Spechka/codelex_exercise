@@ -1,4 +1,5 @@
 ﻿using System;
+using static Exercise4.Movie;
 
 namespace Exercise4
 {
@@ -15,10 +16,7 @@ namespace Exercise4
             Movie[] pgMovies = Movie.GetPG(allMovies);
 
             Console.WriteLine("PG-rated Movies:");
-            foreach (Movie film in pgMovies)
-            {
-                Console.WriteLine($"Title: {film.Title}, Studio: {film.Studio}, Rating: {film.Rating}");
-            }
+            PrintMovies(pgMovies);
         }
     }
 }

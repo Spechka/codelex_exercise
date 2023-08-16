@@ -8,28 +8,28 @@ namespace Exercise3
 {
     internal class FuelGauge
     {
-        public int CurrentFuel;
+        private int _currentFuel;
 
         public FuelGauge() 
         {
-            CurrentFuel = 50;
+            _currentFuel = 50;
         }
 
         public int ReportFuel()
         {
-            return CurrentFuel;
+            return _currentFuel;
         }
 
         public void FillUp()
         {
-            CurrentFuel++;
+            _currentFuel++;
         }
 
         public void FuelWasted()
         {
-            if (CurrentFuel > 0)
+            if (_currentFuel > 0)
             {
-                CurrentFuel--;
+                _currentFuel--;
             }
         }
     }

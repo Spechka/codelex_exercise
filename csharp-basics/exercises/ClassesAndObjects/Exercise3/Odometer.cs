@@ -8,34 +8,34 @@ namespace Exercise3
 {
     internal class Odometer
     {
-        private int currentMileage;
-        private FuelGauge fuelGauge;
+        private int _currentMileage;
+        private FuelGauge _fuelGauge;
 
         public Odometer(FuelGauge fuelGauge)
         {
-            currentMileage = 0;
-            this.fuelGauge = fuelGauge;
+            _currentMileage = 0;
+            _fuelGauge = fuelGauge;
         }
 
         public int ReportMileage()
         {
-            return currentMileage;
+            return _currentMileage;
         }
 
         public void DroveKm()
         {
-            if (currentMileage < 999999)
+            if (_currentMileage < 999999)
             {
-                currentMileage++;
+                _currentMileage++;
             }
             else
             {
-                currentMileage = 0;
+                _currentMileage = 0;
             }
 
-            if (currentMileage % 10 == 0)
+            if (_currentMileage % 10 == 0)
             {
-                fuelGauge.FuelWasted();
+                _fuelGauge.FuelWasted();
             }
         }
     }

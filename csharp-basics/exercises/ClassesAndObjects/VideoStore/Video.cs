@@ -10,24 +10,24 @@ namespace VideoStore
         public Video(string title)
         {
             Title = title;
-            IsAvailable = true;
+            _isAvailable = true;
             _ratings = new List<double>();
         }
 
         public string Title { get; set; }
 
-        public bool IsAvailable { get; set; }
+        private bool _isAvailable;
 
         public double AvarageRating => _ratings.Any() ? _ratings.Average() : 0;
 
         public void BeingCheckedOut () 
         {
-            IsAvailable = false;
+            _isAvailable = false;
         }
 
         public void BeingReturned ()
         {
-            IsAvailable = true;
+            _isAvailable = true;
         }
 
         public void RecieveRating (double rating)
@@ -37,7 +37,7 @@ namespace VideoStore
 
         public override string ToString()
         {
-            return $"{Title}, rating: {AvarageRating}, Is avalable: {IsAvailable}";
+            return $"{Title}, rating: {AvarageRating}, Is avalable: {_isAvailable}";
         }
     }
 }

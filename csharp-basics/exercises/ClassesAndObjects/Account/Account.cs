@@ -4,28 +4,28 @@ namespace Account
 {
     class Account
     {
-        public string UserName;
-        public double Balance;
+        private string _userName;
+        private double _balance;
 
         public void CreateAccount(string account, double balance)
         {
-            UserName = account;
-            Balance = balance;
+            _userName = account;
+            _balance = balance;
         }
 
         public void Deposit(double withdrawal)
         {
-            Balance = Balance + withdrawal;
+            _balance += withdrawal;
         }
 
         public void Withdraws(double withdrawal)
         {
-            Balance = Balance - withdrawal;
+            _balance = _balance - withdrawal;
         }
 
         public void DisplayAccount()
         {
-            Console.WriteLine($"{UserName}, ${Balance}");
+            Console.WriteLine($"{_userName}, ${_balance}");
         }
     }
 }
