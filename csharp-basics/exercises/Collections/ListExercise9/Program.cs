@@ -31,7 +31,7 @@ namespace ListExercise9
 
             firstList.AddRange(secondList);
 
-            Console.WriteLine($"Lists joined together:");
+            Console.WriteLine($"Lists joined together:{string.Join(",", firstList)}");
         }
     }
 }
