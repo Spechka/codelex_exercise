@@ -9,7 +9,7 @@ namespace ReplaceSubstring
         {
             var words = new[] { "near", "speak", "tonight", "weapon", "customer", "deal", "lawyer" };
 
-            var fixedWords = words.Select(c => c.Contains("ea") ? c.Replace("ea", "*") : c);
+            var fixedWords = words.Select(c => c.Replace("ea", "*"));
 
             Console.WriteLine(string.Join(", ", fixedWords));
         }

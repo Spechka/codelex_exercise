@@ -6,7 +6,6 @@ namespace DecryptNumber
 {
     internal class Program
     {
-        // look at the keyboard.
         static void Main(string[] args)
         {
             var cryptedNumbers = new List<string>
@@ -26,7 +25,8 @@ namespace DecryptNumber
                 {'(', '9'}, {')', '0'}
             };
 
-            var decryptedNumbers = cryptedNumbers.Select(crypted => new string(crypted.Select(c => keyboardMapping[c]).ToArray())).ToList();
+            var decryptedNumbers = cryptedNumbers.Select(crypted => new string(crypted
+                .Select(c => keyboardMapping[c]).ToArray()));
 
             foreach (var decrypted in decryptedNumbers)
             {
