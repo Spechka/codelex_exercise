@@ -16,11 +16,13 @@ class Program
     {
         DateTime dt = new DateTime();
 
-        var dayNames = Enumerable.Range(0, 7).Select(daysToAdd => dt.AddDays(daysToAdd)).Select(date => new { Day = (DayOfWeek)date.DayOfWeek, Name = date.DayOfWeek.ToString() });
+        var dayNames = Enumerable.Range(0, 7)
+            .Select(i => dt.AddDays(i))
+            .Select(date => (date.DayOfWeek, Enum.GetName(typeof(DayOfWeek), date.DayOfWeek)));
 
-        foreach (var day in dayNames)
+        foreach (var (dayOfWeek, dayName) in dayNames)
         {
-            Console.WriteLine("Day: {0}, Name: {1}", day.Day, day.Name);
+            Console.WriteLine("{0}: {1}", dayOfWeek, dayName);
         }
     }
 }

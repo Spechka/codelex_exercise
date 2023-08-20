@@ -10,9 +10,11 @@ namespace UniqueValues
         {
             var values = new List<string> { "Hi", "Meow", "Hello", "Meow", "Hi!", "Meow", "Hi", "Bye" };
 
-            var fixedValues = values.Distinct().ToList();
+            var distinctValues = values.Distinct().ToList();
 
-            Console.WriteLine(string.Join(", ", fixedValues));
+            var unique = distinctValues.Where(v => !distinctValues.Any(v2 => v != v2 && v2.Contains(v))).ToList();
+
+            Console.WriteLine(string.Join(", ", unique));
         }
     }
 }
