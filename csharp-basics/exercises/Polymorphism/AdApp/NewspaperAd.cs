@@ -2,21 +2,17 @@ namespace AdApp
 {
     public class NewspaperAd : Advert
     {
-        private int _column;
-        private int _rate;
+        private double _columnCm;
 
-        public NewspaperAd(int fee) : base(fee)
+        public NewspaperAd(double fixedCost, double variableCost, double columnCm)
+            : base(fixedCost, variableCost, AdvertType.Newspaper)
         {
+            _columnCm = columnCm;
         }
 
-        private new int Cost()
+        public override double CalculateCost()
         {
-            return base.Cost();
-        }
-
-        public override string ToString()
-        {
-            return base.ToString();
+            return base.CalculateCost() * _columnCm;
         }
     }
 }

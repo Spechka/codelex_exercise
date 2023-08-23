@@ -2,22 +2,25 @@ namespace AdApp
 {
     public class Hoarding: Advert
     {
-        private int _rate;
-        //per day
-        private int _numDays;
+        private int NumberOfDays;
+        private bool IsPrimeLocation;
 
-        public Hoarding(int fee) : base(fee)
+        public Hoarding(double fixedCost, double variableCost, int numberOfDays, bool isPrimeLocation)
+            : base(fixedCost, variableCost, AdvertType.Hoarding)
         {
+            NumberOfDays = numberOfDays;
+            IsPrimeLocation = isPrimeLocation;
         }
 
-        public new int Cost() 
+        public override double CalculateCost() 
         {
-            return base.Cost();
-        }
+            double totalCost = base.CalculateCost() * NumberOfDays;
+            if(IsPrimeLocation)
+            {
+                totalCost += totalCost * 0.5;
+            }
 
-        public override string ToString() 
-        {
-            return base.ToString();
+            return totalCost;
         }
     }
 }
