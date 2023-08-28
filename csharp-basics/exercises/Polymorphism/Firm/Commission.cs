@@ -10,7 +10,8 @@ namespace Firm
         private double _totalSales;
         private double _commissionRate;
 
-        public Commission(string eName, string eAddress, string ePhone, string socSecNumber, double rate, double commissionRate) : base(eName, eAddress, ePhone, socSecNumber, rate)
+        public Commission(string eName, string eAddress, string ePhone, string socSecNumber, double rate, double commissionRate)
+            : base(eName, eAddress, ePhone, socSecNumber, rate)
         {
             _totalSales = 0;
             _commissionRate = commissionRate;

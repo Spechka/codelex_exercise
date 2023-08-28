@@ -9,7 +9,8 @@ namespace Persons
     {
         public double GPA { get; set; }
 
-        public Student(string firstName, string lastName, string address, int id, double gpa) : base(firstName, lastName, address, id)
+        public Student(string firstName, string lastName, string address, int id, double gpa) : base
+            (firstName, lastName, address, id)
         {
             GPA = gpa;
         }

@@ -14,13 +14,13 @@ namespace AdApp
 
         protected double VariableCost;
 
-        public AdvertType Type { get; set; }
+        private AdvertType _type;
 
         public Advert(double fixedCost, double variableCost, AdvertType type) 
         {
             FixedCost = fixedCost;
             VariableCost = variableCost;
-            Type = type;
+            _type = type;
         }
 
         public virtual double CalculateCost() 
@@ -30,7 +30,7 @@ namespace AdApp
 
         public override string ToString() 
         {
-            return $"Type: {Type}, Fixed Cost: £{FixedCost}, Variable Cost: £{VariableCost}, Total Cost: £{CalculateCost()}";
+            return $"Type: {_type}, Fixed Cost: £{FixedCost}, Variable Cost: £{VariableCost}, Total Cost: £{CalculateCost()}";
         }
     }
 }

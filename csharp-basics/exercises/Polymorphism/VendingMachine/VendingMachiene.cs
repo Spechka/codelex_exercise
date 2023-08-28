@@ -135,16 +135,11 @@ namespace VendingMachine
 
         public bool IsCoinValid(Money coin)
         {
-            if (coin.Euros == 2 && coin.Cents == 0 ||
+            return coin.Euros == 2 && coin.Cents == 0 || 
                 coin.Euros == 1 && coin.Cents == 0 ||
                 coin.Euros == 0 && coin.Cents == 50 ||
                 coin.Euros == 0 && coin.Cents == 20 ||
-                coin.Euros == 0 && coin.Cents == 10)
-            {
-                return true;
-            }
-
-            return false;
+                coin.Euros == 0 && coin.Cents == 10;
         }
 
         public string Manufacturer => _manufacturer;

@@ -6,24 +6,24 @@ namespace Persons
 {
     internal class Homosapiens
     {
-        private string FirstName { get; set; }
-        private string LastName { get; set; }
-        private string Address { get; set; }
-        private int Id { get; set; }
+        private string _firstName;
+        private string _lastName;
+        private string _address;
+        private int _id;
 
         public Homosapiens(string firstName, string lastName, string address, int id)
         {
-            FirstName = firstName;
-            LastName = lastName;
-            Address = address;
-            Id = id;
+            _firstName = firstName;
+            _lastName = lastName;
+            _address = address;
+            _id = id;
         }
 
         public virtual void Display()
         {
-            Console.WriteLine($"Full name: {FirstName} {LastName}");
-            Console.WriteLine($"Homosapien's ID: {Id}");
-            Console.WriteLine($"Adress: {Address}");
+            Console.WriteLine($"Full name: {_firstName} {_lastName}");
+            Console.WriteLine($"Homosapien's ID: {_id}");
+            Console.WriteLine($"Adress: {_address}");
         }
     }
 }

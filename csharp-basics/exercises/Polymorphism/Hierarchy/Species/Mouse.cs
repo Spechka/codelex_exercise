@@ -7,17 +7,12 @@ namespace Hierarchy.Species
 {
     internal class Mouse : Mammal
     {
-        private string _animalType;
-        private string _animalName;
-        private double _weight;
         private string _livingRegion;
         private int _foodEaten;
 
-        public Mouse(string animalType, string animalName, string weight, string livingRegion)
+        public Mouse(string animalType, string animalName, string weight, string livingRegion) : base 
+            (animalType, animalName, weight)
         {
-            _animalType = animalType;
-            _animalName = animalName;
-            _weight = double.Parse(weight);
             _livingRegion = livingRegion;
             _foodEaten = 0;
         }

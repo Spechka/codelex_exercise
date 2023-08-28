@@ -8,7 +8,8 @@ namespace Persons
     {
         public string JobTitle { get; set; }
 
-        public Employee (string jobTitle, string firstName, string lastName, string address, int id) : base(firstName, lastName, address, id)
+        public Employee (string jobTitle, string firstName, string lastName, string address, int id) : base
+            (firstName, lastName, address, id)
         {
             JobTitle = jobTitle;
         }

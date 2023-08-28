@@ -29,20 +29,17 @@ namespace Hierarchy
                         currentAnimal = new Cat(inputArr[0], inputArr[1], inputArr[2], inputArr[3], inputArr[4]);
                         animals.Add(currentAnimal);
                     }
-
-                    if (inputArr[0] == "Tiger")
+                    else if (inputArr[0] == "Tiger")
                     {
                         currentAnimal = new Tiger(inputArr[0], inputArr[1], inputArr[2], inputArr[3]);
                         animals.Add(currentAnimal);
                     }
-
-                    if (inputArr[0] == "Mouse")
+                    else if (inputArr[0] == "Mouse")
                     {
                         currentAnimal = new Mouse(inputArr[0], inputArr[1], inputArr[2], inputArr[3]);
                         animals.Add(currentAnimal);
                     }
-
-                    if (inputArr[0] == "Zebra")
+                    else if (inputArr[0] == "Zebra")
                     {
                         currentAnimal = new Zebra(inputArr[0], inputArr[1], inputArr[2], inputArr[3]);
                         animals.Add(currentAnimal);

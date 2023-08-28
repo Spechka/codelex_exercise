@@ -7,18 +7,13 @@ namespace Hierarchy.Species
 {
     internal class Cat : Feline
     {
-        private string _animalType;
-        private string _animalName;
-        private double _weight;
         private string _livingRegion;
         private string _breed;
         private int _foodEaten;
 
-        public Cat(string animalType, string animalName, string weight, string livingRegion, string breed)
+        public Cat(string animalType, string animalName, string weight, string livingRegion, string breed) : base
+            (animalType, animalName, weight)
         {
-            _animalType = animalType;
-            _animalName = animalName;
-            _weight = double.Parse(weight);
             _livingRegion = livingRegion;
             _breed = breed;
             _foodEaten = 0;
