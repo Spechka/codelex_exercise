@@ -1,13 +1,17 @@
-﻿namespace Persons
+﻿using System;
+
+namespace Persons
 {
     class Program
     {
         static void Main(string[] args)
         {
-            /*
-             * - Create an instant of class Student and an instant of class Employee with proper values for the attributes.
-             * - Display the content of each class using Display() method.
-             */
+            Student student = new Student("Peteris", "Krumins", "Sewer,  Puskina-Kalatuskina 2 - 4", 23, 2.1);
+            Employee employee = new Employee("Sewer explorer", "Big", "Boss", "Mars, That-One-Rock-We-Saw 3 - 2", 67);
+
+            student.Display();
+            Console.WriteLine();
+            employee.Display();
         }
     }
 }

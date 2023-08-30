@@ -17,14 +17,15 @@ namespace AdApp
             _campaign.Add(a);
         }
 
-        public int GetCost()
+        public double GetTotalCost()
         {
-            return _campaign.Sum(item => item.Cost());
+            return _campaign.Sum(item => item.CalculateCost());
         }
 
         public override string ToString()
         {
-            return "Advert Campaign" + _campaign + "\nTotal Cost = "+ GetCost();
+            string advertDetails = string.Join("\n", _campaign.Select(advert => advert.ToString()));
+            return $"Advert Campaign:\n{advertDetails}\nTotal Cost: £{GetTotalCost()}";
         }
     }
 }

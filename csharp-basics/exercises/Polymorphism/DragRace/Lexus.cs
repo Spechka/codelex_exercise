@@ -2,18 +2,18 @@ using System;
 
 namespace DragRace
 {
-    public class Lexus
+    public class Lexus : IBoost
     {
         private int _currentSpeed = 0;
 
         public void SpeedUp() 
         {
-            _currentSpeed;
+            _currentSpeed += 9;
         }
 
         public void SlowDown() 
         {
-            _currentSpeed;
+            _currentSpeed -= 4;
         }
 
         public string ShowCurrentSpeed() 
@@ -23,12 +23,13 @@ namespace DragRace
 
         public void UseNitrousOxideEngine() 
         {
-            _currentSpeed;
+            Console.WriteLine("Using Boost!");
+            _currentSpeed += 15;
         }
 
         public void StartEngine() 
         {
-            Console.WriteLine("Rrrrrrr.....");
+            Console.WriteLine("Lexus started the engine - Rrrrrrr.....");
         }
     }
 }

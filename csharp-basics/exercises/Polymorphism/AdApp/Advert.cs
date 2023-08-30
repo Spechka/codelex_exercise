@@ -1,32 +1,36 @@
 namespace AdApp
 {
+    public enum AdvertType
+    {
+        Hoarding,
+        Newspaper,
+        TVCommercial,
+        Poster
+    }
+
     public class Advert
     {
-        private int _fee;
+        protected double FixedCost;
 
-        public Advert() 
+        protected double VariableCost;
+
+        private AdvertType _type;
+
+        public Advert(double fixedCost, double variableCost, AdvertType type) 
         {
-            _fee = 0;
+            FixedCost = fixedCost;
+            VariableCost = variableCost;
+            _type = type;
         }
 
-        public Advert(int fee) 
+        public virtual double CalculateCost() 
         {
-            _fee = fee;
-        }
-
-        public void SetFee(int fee) 
-        {
-            _fee = fee;
-        }
-
-        public int Cost() 
-        {
-            return _fee;
+            return FixedCost + VariableCost;
         }
 
         public override string ToString() 
         {
-            return "\nAdvert: Fee=" + _fee;
+            return $"Type: {_type}, Fixed Cost: £{FixedCost}, Variable Cost: £{VariableCost}, Total Cost: £{CalculateCost()}";
         }
     }
 }
