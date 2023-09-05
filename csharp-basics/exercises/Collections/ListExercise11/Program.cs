@@ -1,22 +1,31 @@
-﻿namespace ListExercise11
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace ListExercise11
 {
     class Program
     {
         static void Main(string[] args)
         {
-            //TODO: Create an List with string elements
+            List<string> list = new List<string>();
 
-            //TODO: Add 10 values to list
+            var values = new List<string>() { "Apple", "Banana", "Cherry", "Date", "Grape", "Lemon", "Mango", "Orange", "Peach", "Strawberry" };
+            list.AddRange(values);
 
-            //TODO: Add new value at 5th position
+            list.Insert(4, "FIVE");
 
-            //TODO: Change value at last position (Calculate last position programmatically)
+            var lastValue = list.Count - 1;
+            list[lastValue] = "LAST";
 
-            //TODO: Sort your list in alphabetical order
+            list.Sort();
 
-            //TODO: Check if your list contains "Foobar" element
+            list.Contains("Foobar");
 
-            //TODO: Print each element of list using loop
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }

@@ -1,3 +1,28 @@
-﻿// See https://aka.ms/new-console-template for more information
-//ToDo: Write a query that returns names of days
-//https://docs.microsoft.com/en-us/dotnet/api/system.dayofweek?view=net-6.0
+﻿namespace DaysNames;
+class Program
+{
+    public enum DayOfWeek
+    {
+        Sunday,
+        Monday,
+        Tuesday,
+        Wednesday,
+        Thursday,
+        Friday,
+        Saturday
+    }
+
+    static void Main(string[] args)
+    {
+        DateTime dt = new DateTime();
+
+        var dayNames = Enumerable.Range(0, 7)
+            .Select(i => dt.AddDays(i))
+            .Select(date => (date.DayOfWeek, Enum.GetName(typeof(DayOfWeek), date.DayOfWeek)));
+
+        foreach (var (dayOfWeek, dayName) in dayNames)
+        {
+            Console.WriteLine("{0}: {1}", dayOfWeek, dayName);
+        }
+    }
+}
