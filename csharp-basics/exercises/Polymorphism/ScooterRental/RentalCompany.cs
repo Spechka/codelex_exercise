@@ -58,7 +58,7 @@ namespace ScooterRental
             scooter.IsRented = false;
             var cost = CalculateCost(scooter);
 
-            _rentLogs.Add(new RentLogEntry(scooter, DateTime.UtcNow, cost));
+            _rentLogs.Add(new RentLogEntry(scooter, DateTime.Now, cost));
 
             return cost;
         }
@@ -69,11 +69,11 @@ namespace ScooterRental
 
             ScooterValidations.IsScooterInInventory(scooter, id);
 
-            scooter.ScooterRentStartDate = DateTime.UtcNow.AddMinutes(-10);
+            scooter.ScooterRentStartDate = DateTime.Now.AddMinutes(-10);
             scooter.IsRented = true;
         }
 
-        public decimal CalculateCost(Scooter scooter)
+        private decimal CalculateCost(Scooter scooter)
         {
             var rentTimeInMinutes = (int)DateTime.Now.Subtract(scooter.ScooterRentStartDate).TotalMinutes;
             var price = scooter.PricePerMinute * rentTimeInMinutes;

@@ -29,7 +29,7 @@ namespace ScooterRental.Tests
             _scooter = new Scooter("4", 0.2m)
             {
                 IsRented = true,
-                ScooterRentStartDate = DateTime.Now.AddMinutes(-1)
+                ScooterRentStartDate = DateTime.Now.AddMinutes(-420)
             };
             _inventory.Add(_scooter);
 
@@ -39,9 +39,9 @@ namespace ScooterRental.Tests
 
             var rentHistory = new List<RentLogEntry>()
             {
-                new RentLogEntry(rentedScooter1, DateTime.UtcNow, 0.8m),
-                new RentLogEntry(rentedScooter2, DateTime.UtcNow, 1.5m),
-                new RentLogEntry(rentedScooter3, DateTime.UtcNow.AddYears(-1), 2.0m),
+                new RentLogEntry(rentedScooter1, DateTime.Now, 0.8m),
+                new RentLogEntry(rentedScooter2, DateTime.Now, 1.5m),
+                new RentLogEntry(rentedScooter3, DateTime.Now.AddYears(-1), 2.0m),
             };
 
             _rentalCompany = new RentalCompany("Traktoors", service, rentHistory);
@@ -67,7 +67,7 @@ namespace ScooterRental.Tests
         [TestMethod]
         public void RentalCompany_EndRent_ScooterIsRentedShouldBeFalseAndReturnPrice()
         {
-            _rentalCompany.EndRent(_scooter.Id).Should().Be(0.2m);
+            _rentalCompany.EndRent(_scooter.Id).Should().Be(84);
             _scooter.IsRented.Should().BeFalse();
         }
 
@@ -89,7 +89,7 @@ namespace ScooterRental.Tests
         [TestMethod]
         public void CalculateIncome_IncomeForCurrentYearAndUnfinishedRent_ReturnIncomeForCurrentYearAndUnfinishedRent()
         {
-            _rentalCompany.CalculateIncome(2023, true).Should().Be(2.5m);
+            _rentalCompany.CalculateIncome(2023, true).Should().Be(86.3m);
         }
 
         [TestMethod]

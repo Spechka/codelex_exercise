@@ -6,16 +6,16 @@
 
         public bool HasProducts { get; }
 
-        public MoneyObj.Money Amount { get; }
+        public Money Amount { get; }
 
-        ProductObj.Product[] Products { get; set; }
+        Product[] Products { get; set; }
 
-        MoneyObj.Money InsertCoin(MoneyObj.Money amount);
+        Money InsertCoin(Money amount);
 
-        MoneyObj.Money ReturnMoney();
+        Money ReturnMoney();
 
-        bool AddProduct(string name, MoneyObj.Money price, int count);
+        bool AddProduct(string name, Money price, int count);
 
-        bool UpdateProduct(int productNumber, string name, MoneyObj.Money? price, int amount);
+        bool UpdateProduct(int productNumber, string name, Money? price, int amount);
     }
 }

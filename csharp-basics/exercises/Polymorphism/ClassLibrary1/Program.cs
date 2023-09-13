@@ -7,7 +7,7 @@ namespace VendingMachiene_TDD
         static void Main(string[] args)
         {
             var vendingMachine = new VendingMachine("Bandai Namco");
-            var money = new MoneyObj.Money();
+            var money = new Money();
 
             money.Euros = 3;
             money.Cents = 50;

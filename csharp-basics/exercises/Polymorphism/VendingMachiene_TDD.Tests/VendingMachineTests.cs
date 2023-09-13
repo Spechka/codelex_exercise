@@ -8,31 +8,18 @@ namespace VendingMachiene_TDD.Tests
     public class VendingMachineTests
     {
         private VendingMachine _vendingMachine;
-        private MoneyObj.Money _money;
-        private MoneyObj.Money _invalidMoney;
-        private ProductObj.Product _testProduct;
+        private Money _money;
+        private Money _invalidMoney;
+        private Product _testProduct;
 
         [TestInitialize]
         public void Setup()
         {
-            _money = new MoneyObj.Money()
-            {
-                Euros = 1,
-                Cents = 0,
-            };
+            _money = new Money(1, 0);
 
-            _invalidMoney = new MoneyObj.Money()
-            {
-                Euros = 10,
-                Cents = 10
-            };
+            _invalidMoney = new Money(10, 10);
 
-            _testProduct = new ProductObj.Product
-            {
-                Name = "TestProduct1",
-                Available = 10,
-                Price = _money
-            };
+            _testProduct = new Product(10, _money, "TestProduct1");
 
             _vendingMachine = new VendingMachine("Apple");
             _vendingMachine.AddProduct("TestProduct2", _money, 10);
@@ -73,10 +60,7 @@ namespace VendingMachiene_TDD.Tests
         [TestMethod]
         public void InsertCoinsRemoveMoney_InsertAndRemoveMoney_MoneyShouldBeInsertedAndRemoved()
         {
-            var moneyNew = new MoneyObj.Money()
-            {
-                Euros = 2
-            };
+            var moneyNew = new Money(2, 0);
 
             _vendingMachine.InsertCoin(_invalidMoney);
             _vendingMachine.InsertCoin(_money).Should().Be(moneyNew);
@@ -86,11 +70,7 @@ namespace VendingMachiene_TDD.Tests
         [TestMethod]
         public void UpdateProduct_ChangeProductsInformation_ProductInformationShouldBeChanged()
         {
-            var moneyNew = new MoneyObj.Money()
-            {
-                Euros = 10,
-                Cents = 10
-            };
+            var moneyNew = new Money(10, 10);
 
             _vendingMachine.UpdateProduct(
                 0,

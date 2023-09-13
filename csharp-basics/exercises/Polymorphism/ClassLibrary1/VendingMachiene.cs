@@ -11,22 +11,22 @@ namespace VendingMachiene_TDD
     {
         private string _manufacturer;
         private bool _hasProducts;
-        private MoneyObj.Money _amountOfMoney;
-        private ProductObj.Product[] _products;
+        private Money _amountOfMoney;
+        private Product[] _products;
 
         public VendingMachine(string manufacturer)
         {
             _manufacturer = manufacturer;
             _hasProducts = false;
 
-            _amountOfMoney = new MoneyObj.Money();
+            _amountOfMoney = new Money();
             _amountOfMoney.Euros = 0;
             _amountOfMoney.Cents = 0;
 
-            Products = new ProductObj.Product[100];
+            Products = new Product[100];
         }
 
-        public bool AddProduct(string name, MoneyObj.Money price, int count)
+        public bool AddProduct(string name, Money price, int count)
         {
             var isAdded = false;
             for (int i = 0; i < _products.Length; i++)
@@ -85,12 +85,12 @@ namespace VendingMachiene_TDD
             _products[index].Available--;
         }
 
-        public int CountCoins(MoneyObj.Money money)
+        public int CountCoins(Money money)
         {
             return money.Euros * 100 + money.Cents;
         }
 
-        public MoneyObj.Money InsertCoin(MoneyObj.Money amount)
+        public Money InsertCoin(Money amount)
         {
             if (IsCoinValid(amount))
             {
@@ -111,7 +111,7 @@ namespace VendingMachiene_TDD
             return Amount;
         }
 
-        public MoneyObj.Money ReturnMoney()
+        public Money ReturnMoney()
         {
             var amount = _amountOfMoney;
             _amountOfMoney.Euros = 0;
@@ -120,12 +120,12 @@ namespace VendingMachiene_TDD
             return amount;
         }
 
-        public bool UpdateProduct(int productNumber, string name, MoneyObj.Money? price, int amount)
+        public bool UpdateProduct(int productNumber, string name, Money? price, int amount)
         {
             if (_products[productNumber].Name != null)
             {
                 _products[productNumber].Name = name;
-                _products[productNumber].Price = (MoneyObj.Money)price;
+                _products[productNumber].Price = (Money)price;
                 _products[productNumber].Available = amount;
                 return true;
             }
@@ -135,7 +135,7 @@ namespace VendingMachiene_TDD
             }
         }
 
-        public bool IsCoinValid(MoneyObj.Money coin)
+        public bool IsCoinValid(Money coin)
         {
             return coin.Euros == 2 && coin.Cents == 0 || 
                 coin.Euros == 1 && coin.Cents == 0 ||
@@ -148,8 +148,8 @@ namespace VendingMachiene_TDD
 
         public bool HasProducts => _hasProducts;
 
-        public MoneyObj.Money Amount => _amountOfMoney;
+        public Money Amount => _amountOfMoney;
 
-        public ProductObj.Product[] Products { get => _products; set { _products = value; } }
+        public Product[] Products { get => _products; set { _products = value; } }
     }
 }
