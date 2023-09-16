@@ -8,17 +8,18 @@ namespace ScooterRental
 {
     public class RentLogEntry
     {
-        public RentLogEntry(Scooter scooter, DateTime rentEndTime, decimal cost)
+        public RentLogEntry(Scooter scooter)
         {
             Scooter = new Scooter(scooter.Id, scooter.PricePerMinute);
-            RentEndTime = rentEndTime;
-            Cost = cost;
+            RentStartTime = DateTime.Now;
         }
 
         public Scooter Scooter { get; }
 
-        public DateTime RentEndTime { get; }
+        public DateTime RentEndTime { get; set; }
 
-        public decimal Cost { get; }
+        public decimal FinalRentCost { get; set; }
+
+        public DateTime RentStartTime { get; set; }
     }
 }

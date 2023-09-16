@@ -8,7 +8,6 @@ namespace ScooterRental
         {
             Id = id;
             PricePerMinute = pricePerMinute;
-            IsRented = false;
         }
 
         public string Id { get; }
@@ -16,7 +15,5 @@ namespace ScooterRental
         public decimal PricePerMinute { get; }
 
         public bool IsRented { get; set; }
-
-        public DateTime ScooterRentStartDate { get; set; }
     }
 }

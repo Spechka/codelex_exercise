@@ -41,7 +41,7 @@ namespace ScooterRental
             {
                 if (year == null || year == log.RentEndTime.Year)
                 {
-                    totalIncome += log.Cost;
+                    totalIncome += log.FinalRentCost;
                 }
             }
 
@@ -51,16 +51,16 @@ namespace ScooterRental
         public decimal EndRent(string id)
         {
             var scooter = _scooterService.GetScooterById(id);
+            var rentLog = _rentLogs.Find(log => log.Scooter.Id == scooter.Id);
 
             ScooterValidations.IsScooterInInventory(scooter, id);
             ScooterValidations.IsScooterRented(scooter, id);
 
             scooter.IsRented = false;
-            var cost = CalculateCost(scooter);
+            rentLog.FinalRentCost = CalculateCost(scooter);
+            rentLog.RentEndTime = DateTime.Now;
 
-            _rentLogs.Add(new RentLogEntry(scooter, DateTime.Now, cost));
-
-            return cost;
+            return rentLog.FinalRentCost;
         }
 
         public void StartRent(string id)
@@ -69,16 +69,28 @@ namespace ScooterRental
 
             ScooterValidations.IsScooterInInventory(scooter, id);
 
-            scooter.ScooterRentStartDate = DateTime.Now.AddMinutes(-10);
+            _rentLogs.Add(new RentLogEntry(scooter));
             scooter.IsRented = true;
         }
 
         private decimal CalculateCost(Scooter scooter)
         {
-            var rentTimeInMinutes = (int)DateTime.Now.Subtract(scooter.ScooterRentStartDate).TotalMinutes;
-            var price = scooter.PricePerMinute * rentTimeInMinutes;
+            var minutesInDay = 1440;
+            var rentLog = _rentLogs.Find(log => log.Scooter.Id == scooter.Id);
 
-            return Math.Round(price, 2);
+            var minutesInLastDay = (int)DateTime.Now.Subtract(rentLog.RentStartTime).TotalMinutes % minutesInDay;
+            var totalFullDays = (int)DateTime.Now.Subtract(rentLog.RentStartTime).TotalDays;
+
+            var priceForMinutesInLastDay = minutesInLastDay * scooter.PricePerMinute;
+            var pricePerONEDay = minutesInDay * scooter.PricePerMinute;
+
+            priceForMinutesInLastDay = priceForMinutesInLastDay > 20 ? 20 : priceForMinutesInLastDay;
+            pricePerONEDay = pricePerONEDay > 20 ? 20 : pricePerONEDay;
+
+            var priceForDays = totalFullDays * pricePerONEDay;
+            var finalRentCost = priceForDays + priceForMinutesInLastDay;
+
+            return finalRentCost;
         }
     }
 }

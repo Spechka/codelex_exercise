@@ -17,10 +17,6 @@ namespace ScooterRental.Tests
             _scooter.IsRented.Should().BeFalse();
             _scooter.IsRented = true;
             _scooter.IsRented.Should().BeTrue();
-
-            var time = DateTime.Now;
-            _scooter.ScooterRentStartDate = time;
-            _scooter.ScooterRentStartDate.Should().Be(time);
         }
     }
 }

@@ -15,12 +15,20 @@ namespace ScooterRental.Tests
         public void RentLogEntry_CreateLog_ReturnLogInformation()
         {
             var scooter = new Scooter("1", 0.2m);
-            var time = DateTime.Now;
-            var log = new RentLogEntry(scooter, time, 0.2m);
+            var rentStartTime = DateTime.Now.AddMinutes(-16);
+            var rentEndTime = DateTime.Now;
+
+            var log = new RentLogEntry(scooter)
+            {
+                RentStartTime = rentStartTime,
+                RentEndTime = rentEndTime,
+                FinalRentCost = 16m
+            };
 
             log.Scooter.Should().BeEquivalentTo(scooter);
-            log.RentEndTime.Should().Be(time);
-            log.Cost.Should().Be(0.2m);
+            log.RentStartTime.Should().Be(rentStartTime);
+            log.RentEndTime.Should().Be(rentEndTime);
+            log.FinalRentCost.Should().Be(16m);
         }
     }
 }
